@@ -17,7 +17,7 @@ class Database:
     needs to connect() and close() when using to not keep the connection open
     can also use with connect() to automatically close after with statement
     """
-    __config = {'user': 'hurodor', 'password': '123456', 'host': '127.0.0.1'}
+    __config = {'user': 'yourDbUsername', 'password': 'yourDbPassword', 'host': '127.0.0.1'}
 
     database = 'smartTest'
 
