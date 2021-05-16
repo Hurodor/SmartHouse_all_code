@@ -1,6 +1,7 @@
 #include "Room.h"
 #include "Request.h"
 
+// Char-pointers for Request-object 
 const char* id = "Hurodor";
 const char* pw = "123456789";
 const char* baseURL= "http://172.20.10.2:5000/";
@@ -14,10 +15,11 @@ String oldInputSignal;
 String outputSignal;
 String oldOutputSignal = "";
 
-
+// Servo objekt
 Servo windowServo;
 String userID = "1";
 
+// Room and Request objects
 Room bedroom(windowServo, userID);
 Request r(id, pw, baseURL);
 
