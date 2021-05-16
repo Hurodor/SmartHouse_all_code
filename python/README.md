@@ -14,7 +14,7 @@ to activate the envirement:
 $ source venv/bin/activate
 
 for the app to work you need to have a local database, 
-to create the needed tables please copy all the code in conifg/db_setup.txt
+to create the needed tables please copy all the code in databaseConifg/db_setup.txt
 and run it inside your database consol.
 
 to sart server please make sure you are in projects folder and run following commands in termnal:
