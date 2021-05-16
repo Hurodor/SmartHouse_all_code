@@ -1,0 +1,92 @@
+
+create database smartTest;
+
+
+create table smartTest.booking
+(
+    id                 int unsigned auto_increment
+        primary key,
+    bookFrom           time                                  not null,
+    bookTo             time                                  not null,
+    date               date                                  not null,
+    timestampOnBooking timestamp default current_timestamp() not null on update current_timestamp(),
+    userID             int                                   not null,
+    roomID             int                                   not null
+);
+
+create table smartTest.entry
+(
+    id            int auto_increment
+        primary key,
+    people        varchar(45)                           null,
+    doorOpen      varchar(45)                           null,
+    doorLocked    varchar(45)                           null,
+    timestmap     timestamp default current_timestamp() not null on update current_timestamp(),
+    peopleAllowed int                                   null
+);
+
+create table smartTest.powerprice
+(
+    id          int unsigned auto_increment
+        primary key,
+    pricePerKwh float null,
+    validFrom   time  null,
+    validTo     time  null,
+    date        date  null
+);
+
+create table smartTest.powersupply
+(
+    id        int unsigned auto_increment
+        primary key,
+    powerInn  float                                 null,
+    timeStamp timestamp default current_timestamp() not null on update current_timestamp()
+);
+
+create table smartTest.powertotal
+(
+    id          int unsigned auto_increment
+        primary key,
+    powerUsage  float null,
+    powerSupply float null,
+    total       float null,
+    price       float null,
+    payDate     int   null
+);
+
+create table smartTest.powerusage
+(
+    id        int unsigned auto_increment
+        primary key,
+    powerUse  float                                 not null,
+    timestamp timestamp default current_timestamp() not null on update current_timestamp(),
+    room7     float                                 null,
+    room8     float                                 null,
+    room9     float                                 null
+);
+
+create table smartTest.roomcontrol
+(
+    id         int auto_increment
+        primary key,
+    people     varchar(45)                           null,
+    lightVal   varchar(45)                           null,
+    tempVal    varchar(45)                           null,
+    windowOpen varchar(45)                           null,
+    fanSpeed   varchar(45)                           null,
+    roomID     int                                   null,
+    timestamp  timestamp default current_timestamp() not null on update current_timestamp()
+);
+
+create table smartTest.weather
+(
+    id          int unsigned auto_increment
+        primary key,
+    temperature float       not null,
+    description varchar(45) not null,
+    cloudiness  int         not null,
+    windspeed   float       not null,
+    humidity    int         not null,
+    pressure    int         not null,
+    timestamp   timestamp   null
+);
