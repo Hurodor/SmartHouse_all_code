@@ -22,8 +22,6 @@ protected:
     int numPeople;
     int maxPeople;
     int fanValue;
-
-    // Individual User ID for every resident
     String& userID;
 
     // Special formattet string for local booking
@@ -49,7 +47,7 @@ protected:
     int buzzerGPIOpin;
 
 public:
-    // Objektet tar inn to servo-objekter og og userID
+    // Constructor. Requires Servo object and user ID
     Room(Servo& windowServo, String& userID);
 
     // Init member-functions
@@ -98,12 +96,17 @@ public:
     void setWindowAngleAuto(const int& mode);
     int getWindowAngle() const {return winAngle;}
     
+    // Functions related to communication
     String makeSignal();
     String sendLight(int lightValue, int idRoom);
     String sendTemp(int temperatureVal, int idRoom);
     String sendAngle(int windowAngle, int idRoom);
     String sendFan(int fanValue, int idRoom);
     String makeEntrySignal(int openDoor, int lockDoor);
+    
+    // Split signals by index
+    // Subtract char value '0' so that translation from char to int is correct
+    // Multiply by factor of 100 and 10 to make the value correct
     void interpretSignal(String sig);
     
 };
